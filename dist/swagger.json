@@ -1,0 +1,560 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "e-commerce-Smartshop-API",
+    "version": "1.0.0",
+    "description": "OpenAPI conversion from Insomnia collection"
+  },
+  "paths": {
+    "auth": {
+      "post": {
+        "summary": "send code",
+        "description": "Inicia el flujo de autenticaci\u00f3n. \n\nEste endpoint recibe una direcci\u00f3n de email, busca un usuario existente o lo crea si no existe, y luego env\u00eda un c\u00f3digo de verificaci\u00f3n \u00fanico al correo proporcionado. \n\nEste c\u00f3digo se utiliza en el siguiente paso para validar la identidad del usuario.",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "demo.user@gmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": []
+      }
+    },
+    "auth/token": {
+      "post": {
+        "summary": "get token",
+        "description": "Autentica al usuario mediante el c\u00f3digo recibido por email.\n\nSi la combinaci\u00f3n es v\u00e1lida, se devuelve un token de sesi\u00f3n.",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "demo.user@gmail.com",
+                  "code": 72002
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": []
+      }
+    },
+    "me": {
+      "get": {
+        "summary": "get user data",
+        "description": "Devuelve los datos del usuario actualmente autenticado. \n\nRequiere un token de acceso v\u00e1lido en el encabezado de la solicitud.",
+        "parameters": [],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "summary": "update user data",
+        "description": "Permite modificar parcialmente la informaci\u00f3n del usuario autenticado.\n\n\nEs necesario enviar un token de acceso v\u00e1lido y los campos a actualizar en el cuerpo de la solicitud.",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "userName": {
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "userDemo@gmail.com",
+                  "userName": "user",
+                  "phoneNumber": "1234567890",
+                  "address": {
+                    "state": "BA",
+                    "locality": "CABA",
+                    "city": "{% faker 'randomCity' %}",
+                    "street": "{% faker 'randomStreetName' %} {% faker 'randomStreetAddress' %}",
+                    "postalCode": 1809
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "me/cart": {
+      "get": {
+        "summary": "get cart data",
+        "description": "Devuelve la informaci\u00f3n actual del carrito del usuario que realiza la solicitud. \n\nEs necesario incluir un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "add product cart data",
+        "description": "Agrega una cantidad espec\u00edfica de un producto al carrito del usuario autenticado. \n\nEl ID del producto se recibe como par\u00e1metro en la URL, y la cantidad en el cuerpo de la solicitud. \n\nSi el producto ya est\u00e1 en el carrito, se actualiza su cantidad. \n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "quantity": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "quantity": 1
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "reset cart data",
+        "description": "Elimina todos los productos del carrito del usuario autenticado, dejando el carrito vac\u00edo.\n\nRequiere un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete product in cart data",
+        "description": "Elimina un producto espec\u00edfico del carrito del usuario autenticado. \n\nEl ID del producto se recibe como par\u00e1metro en la URL. \n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "product/featured": {
+      "get": {
+        "summary": "featured products",
+        "description": "Devuelve la lista completa de productos destacados para mostrar en la interfaz de usuario.\n\nNo requiere autenticaci\u00f3n.",
+        "parameters": [],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": []
+      }
+    },
+    "product/24": {
+      "get": {
+        "summary": "product by id",
+        "description": "Recibe el ID de un producto como par\u00e1metro de ruta, realiza una b\u00fasqueda en Algolia y devuelve los datos correspondientes al producto.\n\nNo requiere autenticaci\u00f3n.",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": []
+      }
+    },
+    "order/myorders": {
+      "get": {
+        "summary": "my orders",
+        "description": "Devuelve la lista de \u00f3rdenes previamente realizadas por el usuario autenticado.\n\nCada orden incluye informaci\u00f3n como el estado, los productos comprados, la fecha y el total.\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "order/myorders/BNVLTBg9l9B98fjfiYww": {
+      "get": {
+        "summary": "orders by id",
+        "description": "Devuelve la informaci\u00f3n detallada de una orden espec\u00edfica, identificada por su ID en los par\u00e1metros de la URL.\n\n\nSolo puede accederse a \u00f3rdenes del usuario autenticado.\n\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "order": {
+      "post": {
+        "summary": "create order",
+        "description": "Crea una nueva orden utilizando los productos del carrito del usuario autenticado y genera una preferencia de pago en MercadoPago.\n\n\nAdem\u00e1s, recibe un valor opcional en el cuerpo de la solicitud (additionalInfo) que se guarda junto a la orden.\n\n\nDevuelve la URL de MercadoPago para redirigir al usuario a finalizar el pago.\n\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "additionalInfo": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "additionalInfo": "envio a domicilio"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "order/myorders/19MTiGPTamHFVxKazyO7": {
+      "delete": {
+        "summary": "delete order by id",
+        "description": "Elimina una orden espec\u00edfica del usuario autenticado, identificada por su ID en los par\u00e1metros de la URL.\n\n\nSolo puede eliminarse una orden si pertenece al usuario autenticado.\n\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "order/payment/116221235241": {
+      "get": {
+        "summary": "payment by id",
+        "description": "Devuelve el estado actual de un pago de MercadoPago identificado por el ID recibido como par\u00e1metro.\n\nAdem\u00e1s, actualiza en la base de datos los datos relevantes de la orden asociada seg\u00fan la informaci\u00f3n recibida del pago.\n\nEste servicio permite sincronizar el estado de la orden local con el estado real del pago en MercadoPago.\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "ipn/mercadopago": {
+      "post": {
+        "summary": "IPN",
+        "description": "Utilizado como webhook para recibir notificaciones de MercadoPago cuando un pago ha sido creado o actualizado.\n\nRecibe los par\u00e1metros topic e id a trav\u00e9s de la URL (query params), los cuales se utilizan para obtener los datos del pago correspondiente.\n\nUna vez confirmado el pago, se actualiza el estado de la orden en la base de datos, se env\u00eda un email al usuario informando que el pago fue exitoso y se registra un aviso interno (como un correo al equipo o una entrada en Airtable).\n\n\ud83d\udd01 En producci\u00f3n, MercadoPago realiza autom\u00e1ticamente esta solicitud.\n\u2699\ufe0f En modo local, se puede probar manualmente simulando la notificaci\u00f3n con los par\u00e1metros en la URL.\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "search": {
+      "get": {
+        "summary": "search products by query",
+        "description": "Realiza una busqueda en Algolia,utilizando filtros avanzados como marca, modelo, sistema operativo, color y caracter\u00edsticas de c\u00e1mara. \n\n\nTambi\u00e9n permite limitar el rango de precios (priceMin, priceMax), ordenar los resultados (sort) y aplicar paginaci\u00f3n mediante offset y limit.\n\nNo requiere autenticacion.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "brand",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "familyModel",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "colour",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "priceMin",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "priceMax",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "brand",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": []
+      }
+    },
+    "sync": {
+      "post": {
+        "summary": "sync Airtable Data with Algolia Index",
+        "description": "Obtiene los registros desde una tabla de Airtable y los sincroniza con el \u00edndice de Algolia. \n\nEste proceso actualiza o reemplaza los productos en Algolia para reflejar los datos m\u00e1s recientes de Airtable.\n\nNo requiere autenticacion.",
+        "parameters": [],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
