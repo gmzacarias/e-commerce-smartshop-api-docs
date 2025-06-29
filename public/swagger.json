@@ -5,6 +5,16 @@
     "version": "1.0.0",
     "description": "OpenAPI conversion from Insomnia collection"
   },
+  "servers": [
+    {
+      "url": "e-commerce-backend-lake.vercel.app/api/",
+      "description": "Production"
+    },
+    {
+      "url": "http://localhost:3000/api/",
+      "description": "Development"
+    }
+  ],
   "paths": {
     "auth": {
       "post": {
