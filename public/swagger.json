@@ -40,7 +40,7 @@
         },
         "responses": {
           "200": {
-            "description": "Código enviado exitosamente",
+            "description": "Código enviado exitosamente.",
             "content": {
               "application/json": {
                 "schema": {
@@ -72,7 +72,7 @@
             }
           },
           "500": {
-            "description": "Error interno del servidor",
+            "description": "Error interno del servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -123,7 +123,7 @@
         },
         "responses": {
           "200": {
-            "description": "Usuario autenticado correctamente",
+            "description": "Usuario autenticado correctamente.",
             "content": {
               "application/json": {
                 "schema": {
@@ -159,7 +159,7 @@
             }
           },
           "500": {
-            "description": "Error interno del servidor",
+            "description": "Error interno del servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -190,7 +190,7 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Datos del usuario obtenidos correctamente",
+            "description": "Datos del usuario obtenidos correctamente.",
             "content": {
               "application/json": {
                 "schema": {
@@ -261,7 +261,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "token invalido o no autorizado"
+                      "example": "token invalido o no autorizado."
                     }
                   }
                 }
@@ -269,7 +269,7 @@
             }
           },
           "500": {
-            "description": "Error interno del servidor",
+            "description": "Error interno del servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -336,7 +336,7 @@
         },
         "responses": {
           "200": {
-            "description": "Datos actualizados correctamente correctamente",
+            "description": "Datos actualizados correctamente.",
             "content": {
               "application/json": {
                 "schema": {
@@ -344,7 +344,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Datos actualizados"
+                      "example": "Datos actualizados."
                     }
                   }
                 }
@@ -360,7 +360,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "token invalido o no autorizado"
+                      "example": "token invalido o no autorizado."
                     }
                   }
                 }
@@ -368,7 +368,7 @@
             }
           },
           "500": {
-            "description": "Error interno del servidor",
+            "description": "Error interno del servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -376,7 +376,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Error interno del servidor"
+                      "example": "Error interno del servidor."
                     },
                     "error": {
                       "type": "string",
@@ -403,7 +403,68 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Lista de items del carrito de compras",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "productId": "24",
+                    "brand": "XIAOMI",
+                    "model": "NOTE 13",
+                    "storage": "256 GB",
+                    "ram": "8 GB",
+                    "rearCamera": "108 MPX",
+                    "frontCamera": "16 MPX",
+                    "colour": "MINT GREEN",
+                    "price": 549999,
+                    "photo": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513613/vlfbwfewrcbcqjvc1tbr.webp",
+                    "system": "ANDROID",
+                    "version": 13,
+                    "familyModel": "REDMI",
+                    "totalPrice": 549999,
+                    "quantity": 1,
+                    "stock": 9,
+                    "objectID": "24"
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "token invalido o no autorizado."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -444,7 +505,7 @@
         },
         "responses": {
           "200": {
-            "description": "Datos actualizados correctamente",
+            "description": "Se añadió el producto al carrito de compras.",
             "content": {
               "application/json": {
                 "schema": {
@@ -452,7 +513,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "el producto id 29 fue agregado"
+                      "example": "el producto id 29 fue agregado."
                     }
                   }
                 }
@@ -468,7 +529,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "token invalido o no autorizado"
+                      "example": "token invalido o no autorizado."
                     }
                   }
                 }
@@ -476,7 +537,7 @@
             }
           },
           "500": {
-            "description": "Error interno del servidor",
+            "description": "Error interno del servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -484,7 +545,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Error interno del servidor"
+                      "example": "Error interno del servidor."
                     },
                     "error": {
                       "type": "string",
@@ -509,7 +570,7 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Datos actualizados correctamente",
+            "description": "Datos actualizados correctamente.",
             "content": {
               "application/json": {
                 "schema": {
@@ -517,7 +578,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "El carrito esta vacio"
+                      "example": "El carrito esta vacio."
                     }
                   }
                 }
@@ -533,7 +594,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "token invalido o no autorizado"
+                      "example": "token invalido o no autorizado."
                     }
                   }
                 }
@@ -541,7 +602,7 @@
             }
           },
           "500": {
-            "description": "Error interno del servidor",
+            "description": "Error interno del servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -549,11 +610,11 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Error interno del servidor"
+                      "example": "Error interno del servidor."
                     },
                     "error": {
                       "type": "string",
-                      "example": "Detalles técnicos del error"
+                      "example": "Detalles técnicos del error."
                     }
                   }
                 }
@@ -583,7 +644,7 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Datos actualizados correctamente",
+            "description": "Datos actualizados correctamente.",
             "content": {
               "application/json": {
                 "schema": {
@@ -591,7 +652,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "el producto id 24 fue eliminado"
+                      "example": "el producto id 24 fue eliminado."
                     }
                   }
                 }
@@ -607,7 +668,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "token invalido o no autorizado"
+                      "example": "token invalido o no autorizado."
                     }
                   }
                 }
@@ -615,7 +676,7 @@
             }
           },
           "500": {
-            "description": "Error interno del servidor",
+            "description": "Error interno del servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -623,11 +684,11 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Error interno del servidor"
+                      "example": "Error interno del servidor."
                     },
                     "error": {
                       "type": "string",
-                      "example": "Detalles técnicos del error"
+                      "example": "Detalles técnicos del error."
                     }
                   }
                 }
@@ -650,13 +711,131 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Lista de productos destacados obtenida correctamente",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "productId": "9",
+                    "brand": "MOTOROLA",
+                    "model": "60 ULTRA",
+                    "storage": "1 TB",
+                    "ram": "16 GB",
+                    "rearCamera": "50 MPX",
+                    "frontCamera": "50 MPX",
+                    "colour": "PANTONE SCARAB",
+                    "price": 1999999,
+                    "photo": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513613/ykiosywepoxdx0t45aqw.webp",
+                    "system": "ANDROID",
+                    "version": 15,
+                    "familyModel": "RAZR",
+                    "totalPrice": 1999999,
+                    "quantity": 0,
+                    "stock": 10,
+                    "objectID": "9"
+                  },
+                  {
+                    "productId": "31",
+                    "brand": "APPLE",
+                    "model": "16 PRO MAX",
+                    "storage": "512 GB",
+                    "ram": "8 GB",
+                    "rearCamera": "48 MPX",
+                    "frontCamera": "12 MPX",
+                    "colour": "TITANIUM BLACK",
+                    "price": 3499999,
+                    "photo": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513613/nbjjfc5nbvkd2ekryljq.webp",
+                    "system": "IOS",
+                    "version": 18,
+                    "familyModel": "IPHONE",
+                    "totalPrice": 3499999,
+                    "quantity": 0,
+                    "stock": 10,
+                    "objectID": "31"
+                  },
+                  {
+                    "productId": "23",
+                    "brand": "XIAOMI",
+                    "model": "14 T",
+                    "storage": "512 GB",
+                    "ram": "12 GB",
+                    "rearCamera": "50 MPX",
+                    "frontCamera": "32 MPX",
+                    "colour": "TITAN BLUE",
+                    "price": 1619999,
+                    "photo": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513613/jtwp6kzflxcothlun0wm.webp",
+                    "system": "ANDROID",
+                    "version": 14,
+                    "familyModel": "XIAOMI",
+                    "totalPrice": 1619999,
+                    "quantity": 0,
+                    "stock": 10,
+                    "objectID": "23"
+                  },
+                  {
+                    "productId": "18",
+                    "brand": "SAMSUNG",
+                    "model": "S25 ULTRA",
+                    "storage": "512 GB",
+                    "ram": "12 GB",
+                    "rearCamera": "200 MPX",
+                    "frontCamera": "12 MPX",
+                    "colour": "TITANIUM SILVERBLUE",
+                    "price": 2549999,
+                    "photo": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513613/qfqxw1hucb94s0or8lit.webp",
+                    "system": "ANDROID",
+                    "version": 15,
+                    "familyModel": "GALAXY",
+                    "totalPrice": 2549999,
+                    "quantity": 0,
+                    "stock": 5,
+                    "objectID": "18"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Error interno al realizar la búsqueda en Algolia.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Hubo un problema con la búsqueda: Invalid Application-ID or API key"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": []
       }
     },
-    "/product/24": {
+    "/product/{productId}": {
       "get": {
         "summary": "product by id",
         "description": "Recibe el ID de un producto como par\u00e1metro de ruta, realiza una b\u00fasqueda en Algolia y devuelve los datos correspondientes al producto.\n\nNo requiere autenticaci\u00f3n.",
@@ -673,7 +852,66 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Devuelve los datos del producto correctamente",
+            "content": {
+              "application/json": {
+                "example": {
+                  "productId": "24",
+                  "brand": "XIAOMI",
+                  "model": "NOTE 13",
+                  "storage": "256 GB",
+                  "ram": "8 GB",
+                  "rearCamera": "108 MPX",
+                  "frontCamera": "16 MPX",
+                  "colour": "MINT GREEN",
+                  "price": 549999,
+                  "photo": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513613/vlfbwfewrcbcqjvc1tbr.webp",
+                  "system": "ANDROID",
+                  "version": 13,
+                  "familyModel": "REDMI",
+                  "totalPrice": 549999,
+                  "quantity": 0,
+                  "stock": 9,
+                  "objectID": "24"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error interno al realizar la búsqueda en Algolia.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Hubo un problema con la búsqueda: Invalid Application-ID or API key"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": []
@@ -687,7 +925,187 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Respuesta exitosa con el detalle de la(s) orden(es).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "userId": {
+                            "type": "string",
+                            "example": "J6ZLsDlddwV335F6KWTR"
+                          },
+                          "products": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "productId": {
+                                  "type": "string",
+                                  "example": "29"
+                                },
+                                "brand": {
+                                  "type": "string",
+                                  "example": "APPLE"
+                                },
+                                "familyModel": {
+                                  "type": "string",
+                                  "example": "IPHONE"
+                                },
+                                "model": {
+                                  "type": "string",
+                                  "example": "15"
+                                },
+                                "colour": {
+                                  "type": "string",
+                                  "example": "GREEN"
+                                },
+                                "photo": {
+                                  "type": "string",
+                                  "format": "uri",
+                                  "example": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513612/y8mxvi1bi7dqijvxesh0.webp"
+                                },
+                                "quantity": {
+                                  "type": "integer",
+                                  "example": 1
+                                },
+                                "price": {
+                                  "type": "number",
+                                  "example": 1550999
+                                }
+                              }
+                            }
+                          },
+                          "totalPrice": {
+                            "type": "number",
+                            "example": 1550999
+                          },
+                          "additionalInfo": {
+                            "type": "string",
+                            "example": "envio a domicilio"
+                          },
+                          "created": {
+                            "type": "string",
+                            "example": "28/06/2025, 19:30:13"
+                          },
+                          "orderId": {
+                            "type": "string",
+                            "example": "BNVLTBg9l9B98fjfiYww"
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri",
+                            "example": "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1631873438-4e0859b1-ba36-4c40-8f62-5a7de41d12d6"
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "closed"
+                          },
+                          "payment": {
+                            "type": "object",
+                            "properties": {
+                              "paymentId": {
+                                "type": "integer",
+                                "example": 116221235241
+                              },
+                              "paymentCreated": {
+                                "type": "string",
+                                "example": "28/06/2025, 20:05:48"
+                              },
+                              "currencyId": {
+                                "type": "string",
+                                "example": "ARS"
+                              },
+                              "status": {
+                                "type": "string",
+                                "example": "approved"
+                              },
+                              "statusDetail": {
+                                "type": "string",
+                                "example": "accredited"
+                              },
+                              "installments": {
+                                "type": "integer",
+                                "example": 2
+                              },
+                              "paymentMethodId": {
+                                "type": "string",
+                                "example": "visa"
+                              },
+                              "paymentTypeId": {
+                                "type": "string",
+                                "example": "credit_card"
+                              },
+                              "transactionAmount": {
+                                "type": "number",
+                                "example": 1550999
+                              },
+                              "transactionInstallmentAmout": {
+                                "type": "number",
+                                "example": 917726.11
+                              },
+                              "transactionTotalAmount": {
+                                "type": "number",
+                                "example": 1835452.22
+                              },
+                              "fourDigitsCard": {
+                                "type": "string",
+                                "example": "3704"
+                              }
+                            }
+                          },
+                          "expire": {
+                            "type": "boolean",
+                            "example": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "token invalido o no autorizado."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -697,15 +1115,176 @@
         ]
       }
     },
-    "/order/myorders/BNVLTBg9l9B98fjfiYww": {
+    "/order/myorders/{orderId}": {
       "get": {
         "summary": "orders by id",
         "description": "Devuelve la informaci\u00f3n detallada de una orden espec\u00edfica, identificada por su ID en los par\u00e1metros de la URL.\n\n\nSolo puede accederse a \u00f3rdenes del usuario autenticado.\n\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Devuelve los datos de la orden asignada al Id",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "userId": "J6ZLsDlddwV335F6KWTR",
+                    "products": [
+                      {
+                        "productId": "29",
+                        "brand": "APPLE",
+                        "familyModel": "IPHONE",
+                        "model": "15",
+                        "colour": "GREEN",
+                        "photo": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513612/y8mxvi1bi7dqijvxesh0.webp",
+                        "quantity": 1,
+                        "price": 1550999
+                      }
+                    ],
+                    "totalPrice": 1550999,
+                    "additionalInfo": "envio a domicilio",
+                    "created": "28/06/2025, 19:30:13",
+                    "orderId": "BNVLTBg9l9B98fjfiYww",
+                    "url": "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1631873438-4e0859b1-ba36-4c40-8f62-5a7de41d12d6",
+                    "status": "closed",
+                    "payment": {
+                      "paymentId": 116221235241,
+                      "paymentCreated": "28/06/2025, 20:05:48",
+                      "currencyId": "ARS",
+                      "status": "approved",
+                      "statusDetail": "accredited",
+                      "installments": 2,
+                      "paymentMethodId": "visa",
+                      "paymentTypeId": "credit_card",
+                      "transactionAmount": 1550999,
+                      "transactionInstallmentAmout": 917726.11,
+                      "transactionTotalAmount": 1835452.22,
+                      "fourDigitsCard": "3704"
+                    },
+                    "expire": true
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "token invalido o no autorizado."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete order by id",
+        "description": "Elimina una orden espec\u00edfica del usuario autenticado, identificada por su ID en los par\u00e1metros de la URL.\n\n\nSolo puede eliminarse una orden si pertenece al usuario autenticado.\n\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "description": "Elimina una orden identificada por Id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "example": "orden 1234abcd eliminada correctamente."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No encontrado. El objeto con el `objectID` especificado no existe en Algolia.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error al encontrar el producto."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -739,7 +1318,56 @@
         },
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Devuelve una url de pago de Mercado Pago.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "example": "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1631873438-4e0859b1-ba36-4c40-8f62-5a7de41d12d6"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Solicitud inválida. Datos de la preferencia incompletos o mal formateados."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -749,41 +1377,15 @@
         ]
       }
     },
-    "/order/myorders/19MTiGPTamHFVxKazyO7": {
-      "delete": {
-        "summary": "delete order by id",
-        "description": "Elimina una orden espec\u00edfica del usuario autenticado, identificada por su ID en los par\u00e1metros de la URL.\n\n\nSolo puede eliminarse una orden si pertenece al usuario autenticado.\n\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
-        "parameters": [],
-        "requestBody": null,
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/order/payment/116221235241": {
+    "/order/payment/{paymentId}": {
       "get": {
         "summary": "payment by id",
         "description": "Devuelve el estado actual de un pago de MercadoPago identificado por el ID recibido como par\u00e1metro.\n\nAdem\u00e1s, actualiza en la base de datos los datos relevantes de la orden asociada seg\u00fan la informaci\u00f3n recibida del pago.\n\nEste servicio permite sincronizar el estado de la orden local con el estado real del pago en MercadoPago.\n\nEs necesario enviar un token de acceso v\u00e1lido en el encabezado.",
         "parameters": [
           {
-            "name": "topic",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "id",
-            "in": "query",
-            "required": false,
+            "name": "paymentId",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -792,7 +1394,184 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Datos del pago obtenidos correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "userId": {
+                          "type": "string",
+                          "example": "J6ZLsDlddwV335F6KWTR"
+                        },
+                        "products": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "productId": {
+                                "type": "string",
+                                "example": "29"
+                              },
+                              "brand": {
+                                "type": "string",
+                                "example": "APPLE"
+                              },
+                              "familyModel": {
+                                "type": "string",
+                                "example": "IPHONE"
+                              },
+                              "model": {
+                                "type": "string",
+                                "example": "15"
+                              },
+                              "colour": {
+                                "type": "string",
+                                "example": "GREEN"
+                              },
+                              "photo": {
+                                "type": "string",
+                                "format": "uri",
+                                "example": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513612/y8mxvi1bi7dqijvxesh0.webp"
+                              },
+                              "quantity": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "price": {
+                                "type": "integer",
+                                "example": 1550999
+                              }
+                            }
+                          }
+                        },
+                        "totalPrice": {
+                          "type": "integer",
+                          "example": 1550999
+                        },
+                        "additionalInfo": {
+                          "type": "string",
+                          "example": "envio a domicilio"
+                        },
+                        "created": {
+                          "type": "string",
+                          "example": "28/06/2025, 19:30:13"
+                        },
+                        "orderId": {
+                          "type": "string",
+                          "example": "BNVLTBg9l9B98fjfiYww"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri",
+                          "example": "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1631873438-4e0859b1-ba36-4c40-8f62-5a7de41d12d6"
+                        },
+                        "status": {
+                          "type": "string",
+                          "example": "approved"
+                        },
+                        "expire": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "payment": {
+                          "type": "object",
+                          "properties": {
+                            "paymentId": {
+                              "type": "integer",
+                              "example": 116221235241
+                            },
+                            "paymentCreated": {
+                              "type": "string",
+                              "example": "2025-06-28T19:05:48.000-04:00"
+                            },
+                            "currencyId": {
+                              "type": "string",
+                              "example": "ARS"
+                            },
+                            "status": {
+                              "type": "string",
+                              "example": "approved"
+                            },
+                            "statusDetail": {
+                              "type": "string",
+                              "example": "accredited"
+                            },
+                            "installments": {
+                              "type": "integer",
+                              "example": 2
+                            },
+                            "paymentMethodId": {
+                              "type": "string",
+                              "example": "visa"
+                            },
+                            "paymentTypeId": {
+                              "type": "string",
+                              "example": "credit_card"
+                            },
+                            "transactionAmount": {
+                              "type": "number",
+                              "example": 1550999
+                            },
+                            "transactionInstallmentAmout": {
+                              "type": "number",
+                              "example": 917726.11
+                            },
+                            "transactionTotalAmount": {
+                              "type": "number",
+                              "example": 1835452.22
+                            },
+                            "fourDigitsCard": {
+                              "type": "string",
+                              "example": "3704"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Solicitud inválida. Por ejemplo, ID de pago incorrecto o formato inválido."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -827,7 +1606,56 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Notificación de compra exitosa.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Compra exitosa."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno al procesar la notificación de pago"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -918,7 +1746,146 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Lista de productos obtenida exitosamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "productId": {
+                            "type": "string",
+                            "example": "22"
+                          },
+                          "brand": {
+                            "type": "string",
+                            "example": "SAMSUNG"
+                          },
+                          "model": {
+                            "type": "string",
+                            "example": "FLIP 6"
+                          },
+                          "storage": {
+                            "type": "string",
+                            "example": "512 GB"
+                          },
+                          "ram": {
+                            "type": "string",
+                            "example": "12 GB"
+                          },
+                          "rearCamera": {
+                            "type": "string",
+                            "example": "50 MPX"
+                          },
+                          "frontCamera": {
+                            "type": "string",
+                            "example": "10 MPX"
+                          },
+                          "colour": {
+                            "type": "string",
+                            "example": "BLUE"
+                          },
+                          "price": {
+                            "type": "number",
+                            "example": 1699999
+                          },
+                          "photo": {
+                            "type": "string",
+                            "format": "uri",
+                            "example": "https://res.cloudinary.com/dkwjm2ocu/image/upload/v1749513612/jcd9be75fpvpcpjscmar.webp"
+                          },
+                          "system": {
+                            "type": "string",
+                            "example": "ANDROID"
+                          },
+                          "version": {
+                            "type": "number",
+                            "example": 14
+                          },
+                          "familyModel": {
+                            "type": "string",
+                            "example": "Z"
+                          },
+                          "totalPrice": {
+                            "type": "number",
+                            "example": 1699999
+                          },
+                          "quantity": {
+                            "type": "number",
+                            "example": 0
+                          },
+                          "stock": {
+                            "type": "number",
+                            "example": 10
+                          },
+                          "objectID": {
+                            "type": "string",
+                            "example": "22"
+                          }
+                        }
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "offset": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "limit": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "totalResults": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error interno al realizar la búsqueda en Algolia.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Hubo un problema con la búsqueda: Invalid Application-ID or API key"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": []
@@ -932,7 +1899,56 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Base de datos sincronizada correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Base de datos sincronizada."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Hubo un Error al obtener los datos:No hay records disponibles."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error."
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": []
