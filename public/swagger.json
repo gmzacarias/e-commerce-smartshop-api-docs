@@ -441,7 +441,7 @@
           {
             "name": "q",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -504,14 +504,6 @@
           },
           {
             "name": "priceMax",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "brand",
             "in": "query",
             "required": false,
             "schema": {
