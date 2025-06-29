@@ -3,7 +3,7 @@
   "info": {
     "title": "e-commerce-Smartshop-API",
     "version": "1.0.0",
-    "description": "OpenAPI conversion from Insomnia collection"
+    "description": "Proyecto completo de e-commerce desarrollado con Next.js, que expone una API robusta y segura para gestionar usuarios, productos, carritos y órdenes.Utiliza tecnologías modernas como Firebase para autenticación y base de datos, Airtable para gestión de datos, SendGrid para envío de correos, Algolia para búsqueda avanzada, Yup para validación y MercadoPago para pagos.Esta API está diseñada para ser escalable, eficiente y fácil de integrar, ofreciendo todos los endpoints necesarios para una experiencia completa tanto en frontend como backend."
   },
   "servers": [
     {
@@ -40,7 +40,56 @@
         },
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Código enviado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Codigo Enviado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Solicitud inválida. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Email no enviado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": []
@@ -74,7 +123,60 @@
         },
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Usuario autenticado correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Codigo Enviado"
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "aqui devuelve un token valido asociado al usuario"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "el code ingresado a expirado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": []
@@ -88,7 +190,103 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Datos del usuario obtenidos correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "cart": {
+                          "type": "array",
+                          "items": {},
+                          "description": "Lista de productos en el carrito (vacía en este ejemplo)"
+                        },
+                        "address": {
+                          "type": "object",
+                          "properties": {
+                            "street": {
+                              "type": "string",
+                              "example": "Hazle Square 261 Grant Street"
+                            },
+                            "locality": {
+                              "type": "string",
+                              "example": "CABA"
+                            },
+                            "city": {
+                              "type": "string",
+                              "example": "Hailieburgh"
+                            },
+                            "state": {
+                              "type": "string",
+                              "example": "BA"
+                            },
+                            "postalCode": {
+                              "type": "integer",
+                              "example": 1809
+                            },
+                            "country": {
+                              "type": "string",
+                              "example": ""
+                            }
+                          }
+                        },
+                        "phoneNumber": {
+                          "type": "string",
+                          "example": "1234567890"
+                        },
+                        "userName": {
+                          "type": "string",
+                          "example": "user"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "userDemo@gmail.com"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "token invalido o no autorizado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -138,7 +336,56 @@
         },
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Datos actualizados correctamente correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Datos actualizados"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "token invalido o no autorizado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -197,7 +444,56 @@
         },
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Datos actualizados correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "el producto id 29 fue agregado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "token invalido o no autorizado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -213,7 +509,56 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Datos actualizados correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "El carrito esta vacio"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "token invalido o no autorizado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -238,7 +583,56 @@
         "requestBody": null,
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Datos actualizados correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "el producto id 24 fue eliminado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Acceso no autorizado. Por ejemplo, datos faltantes o formato incorrecto.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "token invalido o no autorizado"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error interno del servidor"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Detalles técnicos del error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
