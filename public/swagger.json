@@ -7,11 +7,11 @@
   },
   "servers": [
     {
-      "url": "https://e-commerce-backend-lake.vercel.app/api",
+      "url": "https://e-commerce-backend-lake.vercel.app/api/",
       "description": "Production"
     },
     {
-      "url": "http://localhost:3000/api",
+      "url": "http://localhost:3000/api/",
       "description": "Development"
     }
   ],
