@@ -7,16 +7,16 @@
   },
   "servers": [
     {
-      "url": "e-commerce-backend-lake.vercel.app/api/",
+      "url": "e-commerce-backend-lake.vercel.app/api",
       "description": "Production"
     },
     {
-      "url": "http://localhost:3000/api/",
+      "url": "http://localhost:3000/api",
       "description": "Development"
     }
   ],
   "paths": {
-    "auth": {
+    "/auth": {
       "post": {
         "summary": "send code",
         "description": "Inicia el flujo de autenticaci\u00f3n. \n\nEste endpoint recibe una direcci\u00f3n de email, busca un usuario existente o lo crea si no existe, y luego env\u00eda un c\u00f3digo de verificaci\u00f3n \u00fanico al correo proporcionado. \n\nEste c\u00f3digo se utiliza en el siguiente paso para validar la identidad del usuario.",
