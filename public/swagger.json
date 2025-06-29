@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "e-commerce-backend-lake.vercel.app/api",
+      "url": "https://e-commerce-backend-lake.vercel.app/api",
       "description": "Production"
     },
     {
